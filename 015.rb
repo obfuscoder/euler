@@ -1,0 +1,1 @@
+p [1,1,0,0].permutation.to_a.length

@@ -1,8 +1,8 @@
-maxnum = 2000000
-nums = (0..maxnum).to_a
-2.upto(maxnum) do |n|
-    next if nums[n] == nil
-    2.upto(nums.length/n) {|m| nums[n*m] = nil}
+max_num = 2000000
+num_array = (0..max_num).to_a
+2.upto(max_num) do |n|
+    next if num_array[n] == nil
+    2.upto(num_array.length/n) {|m| num_array[n*m] = nil}
 end
-nums = nums.compact
-p nums.reduce(:+)-1
+num_array = num_array.compact
+p num_array.reduce(:+)-1

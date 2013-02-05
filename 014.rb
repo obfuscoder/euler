@@ -4,7 +4,7 @@ lens = [0]
   while n > 1
     if n <= 1000000 && lens[n] != nil
       count += lens[n] - 1
-      break;
+      break
     end
     if n.even?
       n /= 2

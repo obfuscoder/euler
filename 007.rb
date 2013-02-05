@@ -5,7 +5,7 @@ def prime?(n)
     $primes.each do |p|
         return false if n%p == 0
     end
-    return true
+    true
 end
 
 while $primes.length < 10001 do

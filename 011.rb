@@ -21,31 +21,31 @@ grid=<<HERE
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 HERE
 
-def diagr(a, x)
-    newa = []
+def diagonal_right(a, x)
+    new_a = []
     0.upto(3) do |y|
-        newa << a[y][x+y]
+        new_a << a[y][x+y]
     end
-    newa
+    new_a
 end
 
-def diagl(a,x)
-    newa = []
+def diagonal_left(a,x)
+    new_a = []
     0.upto(3) do |y|
-        newa << a[y][x-y]
+        new_a << a[y][x-y]
     end
-    newa
+    new_a
 end
 
-maxprod = 0
+max_prod = 0
 grid = grid.split(/\n/).map{|e| e.split(/ /).map(&:to_i)}
 0.upto(grid[0].length-1) do |x|
     0.upto(grid.length-1) do |y|
-        prodh = x+4 <= grid[0].length ? grid[y][x, 4].reduce(:*) : 0
-        prodv = y+4 <= grid.length ? grid[y,4].map{|l| l[x]}.reduce(:*) : 0
-        prodrd = x+4 <= grid[0].length && y+4 <= grid.length ? diagr(grid[y,4], x).reduce(:*) : 0
-        prodld = x>=3 && y+4 <= grid.length ? diagl(grid[y,4], x).reduce(:*) : 0
-        maxprod = [maxprod, prodv, prodh, prodrd, prodld].max
+        prod_h = x+4 <= grid[0].length ? grid[y][x, 4].reduce(:*) : 0
+        prod_v = y+4 <= grid.length ? grid[y,4].map{|l| l[x]}.reduce(:*) : 0
+        prod_rd = x+4 <= grid[0].length && y+4 <= grid.length ? diagonal_right(grid[y,4], x).reduce(:*) : 0
+        prod_ld = x>=3 && y+4 <= grid.length ? diagonal_left(grid[y,4], x).reduce(:*) : 0
+        max_prod = [max_prod, prod_v, prod_h, prod_rd, prod_ld].max
     end
 end
-p maxprod
+p max_prod

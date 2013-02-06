@@ -1,0 +1,1 @@
+p 1.upto(999999).select{|n| n.to_s == n.to_s.reverse && n.to_s(2) == n.to_s(2).reverse}.reduce(:+)

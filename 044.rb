@@ -9,7 +9,6 @@ end
 
 k = 1
 while true
-  p k
   pk = pent(k)
   (k-1).downto(1) do |j|
     pj = pent(j)

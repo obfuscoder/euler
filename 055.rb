@@ -1,10 +1,6 @@
 class Integer
   def lychrel?
-    1.upto(50).reduce(self){|n| n += n.reverse; return false if n.palindrome?; n }
-  end
-
-  def palindrome?
-    self == reverse
+    (1..50).reduce(self){|n| n += n.reverse; return false if n == n.reverse; n }
   end
 
   def reverse
@@ -12,4 +8,4 @@ class Integer
   end
 end
 
-p 1.upto(9999).count(&:lychrel?)
+p (1..9999).count(&:lychrel?)

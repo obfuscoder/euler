@@ -21,4 +21,4 @@ while true
   break if @divs[t] > 500
   n += 1
 end
-p t
+puts t

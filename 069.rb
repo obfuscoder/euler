@@ -1,8 +1,9 @@
 require 'prime'
 
-class Integer
-  def inverse_totient
-    [self, 1.0/prime_division.map(&:first).map{|p| 1-1.0/p}.reduce(:*)]
-  end
+total = 1
+Prime.each do |p|
+  new_total = total * p
+  break if new_total > 1000000
+  total = new_total
 end
-p (2..1000000).map(&:inverse_totient).max_by(&:last).first
+p total
